@@ -19,16 +19,16 @@ jobs:
         run: swift --version
       - name: Test core
         run: swift test
-      - name: Build app
-        run: DMG=1 UNIVERSAL=1 bash scripts/build-app.sh
+      - name: Build app and DMG
+        run: bash scripts/make-dmg.sh
       - uses: actions/upload-artifact@v4
         with:
           name: Tessera
-          path: build/Tessera.dmg
+          path: build/Tessera-*.dmg
       - name: Publish release
         if: startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" build/Tessera.dmg \
+          gh release create "$GITHUB_REF_NAME" build/Tessera-*.dmg \
             --title "Tessera ${GITHUB_REF_NAME#v}" --generate-notes

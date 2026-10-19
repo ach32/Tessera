@@ -15,7 +15,7 @@
 swift test                      # тесты ядра (фильтры, раскладка, экспорт, снапшоты, реальный скан)
 bash scripts/build-app.sh       # → build/Tessera.app
 open build/Tessera.app
-DMG=1 UNIVERSAL=1 bash scripts/build-app.sh   # универсальный .app + build/Tessera.dmg
+UNIVERSAL=1 bash scripts/build-app.sh   # универсальный .app (Apple silicon + Intel)
 ```
 
 Поделиться с тестерами: `bash scripts/make-dmg.sh` → `build/Tessera-<версия>.dmg`
