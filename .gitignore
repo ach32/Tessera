@@ -1,0 +1,8 @@
+.build/
+build/
+.swiftpm/
+DerivedData/
+.DS_Store
+replica/
+temp/
+*.tar.gz
